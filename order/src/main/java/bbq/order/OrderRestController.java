@@ -28,13 +28,13 @@ public class OrderRestController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Order post(@Valid @RequestBody Order order) {
-        // Save Order
-        //return orderRepository.save(order);
+        // 1. Save Order
         var savedOrder = orderRepository.save(order);
 
         // 2. Publish order
         publisher.publish(savedOrder);
 
+        // 3. Return order
         return savedOrder;
     }
 
