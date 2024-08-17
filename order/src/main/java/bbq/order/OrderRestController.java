@@ -6,7 +6,6 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @Tag(name = "Order", description = "Order Resource")
@@ -15,13 +14,6 @@ import org.springframework.web.server.ResponseStatusException;
 public class OrderRestController {
 
     private final OrderRepository orderRepository;
-
-    @GetMapping("/crash")
-    public String crash() {
-        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Found nothing...");
-        //throw new IllegalArgumentException("Don't get it.");
-//        throw new RuntimeException("Bam!");
-    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
