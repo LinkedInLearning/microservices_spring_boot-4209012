@@ -21,19 +21,19 @@ public class MenuRepository {
                     .items(
                             List.of(
                                     MenuItem.builder()
-                                            .id(UUID.randomUUID())
+                                            .id(UUID.fromString("0da7f6f4-a472-4ff7-89e2-0e416942614c"))
                                             .price(new BigDecimal("21.9"))
                                             .title("Freddy's Rib Special")
                                             .imageUrl("https://unsplash.com/photos/0hOHNA3M6Ds/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8OHx8cmlic3xlbnwwfHx8fDE3MTQyOTU0MjN8MA&force=true&w=640")
                                             .build(),
                                     MenuItem.builder()
-                                            .id(UUID.randomUUID())
+                                            .id(UUID.fromString("6212c1e0-236a-4b74-91e6-4ccecb64e693"))
                                             .price(new BigDecimal("16.5"))
                                             .title("BBQ Burger and Fries")
                                             .imageUrl("https://unsplash.com/photos/uVPV_nV17Tw/download?ixid=M3wxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNzE0MzMzMzA4fA&force=true&w=640")
                                             .build(),
                                     MenuItem.builder()
-                                            .id(UUID.randomUUID())
+                                            .id(UUID.fromString("5436f685-4dd0-4ba5-b7a7-55cca56f34c7"))
                                             .price(new BigDecimal("10.50"))
                                             .imageUrl("https://unsplash.com/photos/4qzaeR_sTYA/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mnx8bWFjJTIwYW5kJTIwY2hlZXNlfGVufDB8fHx8MTcxNDMzMzE4MHwy&force=true&w=640")
                                             .title("Mac and Cheese")
@@ -88,6 +88,27 @@ public class MenuRepository {
 
     List<MenuCategory> findAll() {
         return menuCategories;
+    }
+
+    MenuItem findItemById(UUID id) {
+        for (MenuCategory menuCategory : menuCategories) {
+            for (MenuItem menuItem : menuCategory.getItems()) {
+                if (menuItem.getId().equals(id)) {
+                    return menuItem;
+                }
+            }
+        }
+        return null;
+    }
+
+    void deleteMenuItemById(UUID id) {
+        for (MenuCategory menuCategory : menuCategories) {
+            menuCategory.setItems(
+                    menuCategory.getItems().stream()
+                            .filter(menuItem -> !menuItem.getId().equals(id))
+                            .toList()
+            );
+        }
     }
 
     List<MenuItem> findItemsByCategoryKey(String key, Optional<String> sort) {
