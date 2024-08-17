@@ -16,8 +16,6 @@ public class OrderRestController {
 
     private final OrderRepository orderRepository;
 
-    private final OrderRestClientPublisher publisher;
-
     @GetMapping("/crash")
     public String crash() {
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Found nothing...");
@@ -31,8 +29,7 @@ public class OrderRestController {
         // 1. Save Order
         var savedOrder = orderRepository.save(order);
 
-        // 2. Publish order
-        publisher.publish(savedOrder);
+        // 2. TODO: Publish order
 
         // 3. Return order
         return savedOrder;
