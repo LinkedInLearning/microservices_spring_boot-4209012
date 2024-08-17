@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @RestController
 @Tag(name = "Menu", description = "Menu Resource")
@@ -40,18 +39,6 @@ public class MenuRestController {
     @GetMapping("/{key}/menu-items")
     public List<MenuItem> getByKey(@PathVariable String key, @RequestParam Optional<String> sort) {
         return menuRepository.findItemsByCategoryKey(key, sort);
-    }
-
-    @PatchMapping("/menu-items/{id}")
-    public MenuItem reduceMenuItemPrice(@PathVariable UUID id, @RequestBody MenuItem menuItem) {
-        var foundItem = menuRepository.findItemById(id);
-        foundItem.setPrice(menuItem.getPrice());
-        return foundItem;
-    }
-
-    @DeleteMapping("/menu-items/{id}")
-    public void deleteMenuItem(@PathVariable UUID id) {
-        menuRepository.deleteMenuItemById(id);
     }
 
     @Hidden
