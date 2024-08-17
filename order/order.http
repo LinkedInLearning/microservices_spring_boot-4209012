@@ -60,9 +60,3 @@ GET localhost:8060/api/menu/response-entity
 ### API Docs
 
 GET http://localhost:8060/v3/api-docs.yaml
-
-
-### Order Crash with Exception
-
-GET localhost:8060/api/order/crash
-
