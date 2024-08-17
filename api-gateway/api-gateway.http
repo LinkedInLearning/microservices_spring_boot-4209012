@@ -9,3 +9,11 @@ GET http://localhost:8080/order
 ### Order Menu
 
 GET http://localhost:8080/order/api/menu
+
+### Actuator
+
+GET http://localhost:8080/actuator
+
+### Actuator Gateway
+
+GET http://localhost:8080/actuator/gateway
