@@ -34,6 +34,16 @@ Dieses Problem lösen Sie wie folgt:
 2. Klonen Sie das Repository in Ihre lokale Maschine unter Verwendung von terminal (Mac), CMD (Windows) oder ein anderes Werkzeug mit grafischer Bedienoberfläche wie SourceTree.
 3. [Course-specific instructions]
 
+### 0. Setzen des Keycloak Hostnamens
+
+Zur Authentifizierung muss der Hostname `keycloak` auf Ihrem System auflösen zu `127.0.0.1`. Dazu müssen Sie folgende Zeile in ihre Hosts Datei hinzufüren (`/etc/hosts` auf Mac/Linux und auf Windows `c:\Windows\System32\Drivers\etc\hosts` als Administrator): 
+
+    127.0.0.1   keycloak
+
+##  1. Ausführen mit Docker Compose
+
+    docker compose up
+
 ### Autor
 
 **Jan Stamer**
