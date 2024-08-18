@@ -2,6 +2,8 @@ package bbq.order.config;
 
 
 import org.springframework.amqp.core.*;
+import org.springframework.amqp.rabbit.connection.ConnectionFactory;
+import org.springframework.amqp.rabbit.transaction.RabbitTransactionManager;
 import org.springframework.amqp.support.converter.Jackson2JavaTypeMapper;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.context.annotation.Bean;
@@ -11,6 +13,11 @@ import org.springframework.stereotype.Component;
 @Component
 @Configuration
 public class RabbitMqConfiguration {
+
+    @Bean
+    public RabbitTransactionManager transactionManager(ConnectionFactory connectionFactory) {
+        return new RabbitTransactionManager(connectionFactory);
+    }
 
     @Bean
     public Jackson2JsonMessageConverter messageConverter() {
