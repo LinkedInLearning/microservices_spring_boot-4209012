@@ -35,8 +35,6 @@ public class OrderRestController {
         // 2. Publish order
         publisher.publish(savedOrder);
 
-        //if (true) throw new RuntimeException("Crash!!");
-
         // 3. Return order
         return savedOrder;
     }
