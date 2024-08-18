@@ -5,6 +5,7 @@ import com.github.kkuegler.HumanReadableIdGenerator;
 import com.github.kkuegler.PermutationBasedHumanReadableIdGenerator;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,12 +14,11 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class OrderRestController {
 
-    private final OrderKafkaPublisher publisher;
+    private final ApplicationEventPublisher eventPublisher;
 
     private final OrderRepository orderRepository;
 
     private final HumanReadableIdGenerator idGenerator = new PermutationBasedHumanReadableIdGenerator();
-
 
     @GetMapping
     public Iterable<Order> getOrders() {
@@ -34,7 +34,7 @@ public class OrderRestController {
         var savedOrder = orderRepository.save(order);
 
         // 2. Publish order
-        publisher.publish(savedOrder);
+        eventPublisher.publishEvent(savedOrder);
 
         //if (true) throw new RuntimeException("Crash!!");
 
