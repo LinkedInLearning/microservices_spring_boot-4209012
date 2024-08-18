@@ -19,7 +19,6 @@ public class OrderRestController {
 
     private final HumanReadableIdGenerator idGenerator = new PermutationBasedHumanReadableIdGenerator();
 
-
     @GetMapping
     public Iterable<Order> getOrders() {
         return orderRepository.findAll();
