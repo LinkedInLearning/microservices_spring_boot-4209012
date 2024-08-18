@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api/order")
 @RequiredArgsConstructor
 public class HelloRestController {
 
@@ -38,7 +38,7 @@ public class HelloRestController {
         cartItem.setItemTitle("Burger");
         cartItem.setItemPrice(BigDecimal.TEN);
         cart.setItems(List.of(cartItem));
-//        order.setCart(cart);
+        order.setCart(cart);
         rabbitTemplate.convertAndSend("orders", "",  order);
         return "Done";
     }

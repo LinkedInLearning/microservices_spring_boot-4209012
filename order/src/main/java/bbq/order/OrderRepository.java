@@ -3,15 +3,31 @@ package bbq.order;
 import bbq.order.model.Order;
 import com.github.kkuegler.HumanReadableIdGenerator;
 import com.github.kkuegler.PermutationBasedHumanReadableIdGenerator;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
-public interface OrderRepository extends CrudRepository<Order, String> {
+@Service
+public class OrderRepository {
 
+    private List<Order> orders = new ArrayList<>();
+
+    private final HumanReadableIdGenerator idGenerator = new PermutationBasedHumanReadableIdGenerator();
+
+    List<Order> findAll() {
+        return orders;
+    }
+
+    Order save(Order order) {
+        // 1. Assign id
+        order.setId(idGenerator.generate());
+
+        // 2. Save
+        orders.add(order);
+
+        // 3. Return saved Order
+        return order;
+    }
 
 }
