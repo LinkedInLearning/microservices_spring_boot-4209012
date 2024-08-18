@@ -1,6 +1,5 @@
 package bbq.order.model;
 
-import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,7 +13,6 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class CartItem {
 
-    @NotBlank
     private String itemId;
     private String itemTitle;
     private BigDecimal itemPrice;

@@ -1,72 +1,38 @@
-### Hello Order
+GET localhost:8060/api/order
 
-GET localhost:8060/
+### Send Order
 
-
-### Post Invalid Order
-
-POST localhost:8060/api/order
-Content-Type: application/json
-
-{
-  "cart": {
-    "items": []
-  },
-  "billingAddress": {
-  }
-}
-
+GET localhost:8060/api/order/send
 
 ### Menu
 
 GET localhost:8060/api/menu
 
 
-### Menu filtered by Category Key
+### Actuator Endpoints
 
-GET localhost:8060/api/menu/sides/items
+http://localhost:8060/actuator
 
+### Actuator Prometheus Registry
 
-### Menu filtered by Category Key Sorted By Proce
+http://localhost:8060/actuator/prometheus
 
-GET localhost:8060/api/menu/main-course/menu-items?sort=price
+### Actuator Info
 
+http://localhost:8060/actuator/info
 
-### Menu filtered by unkown Category Key
+### Actuator health
 
-GET localhost:8060/api/menu/-nothing-
+http://localhost:8060/actuator/health
 
+### Actuator health liveness
 
-### Challenge: Reduce Menu Item Price
+http://localhost:8060/actuator/health/liveness
 
-PATCH localhost:8060/api/menu/menu-items/0da7f6f4-a472-4ff7-89e2-0e416942614c
-Content-Type: application/json
+### Actuator health readiness
 
-{
-  "price": 19.99
-}
+http://localhost:8060/actuator/health/readiness
 
+### Send Order
 
-### Challenge: Delete Menu Item
-
-DELETE localhost:8060/api/menu/menu-items/0da7f6f4-a472-4ff7-89e2-0e416942614c
-
-
-### Menu with Response Entity
-
-GET localhost:8060/api/menu/response-entity
-
-
-### API Docs
-
-GET http://localhost:8060/v3/api-docs.yaml
-
-
-### Order Crash with Exception
-
-GET localhost:8060/api/order/crash
-
-
-### Order to Kitchen
-
-GET localhost:8060/api/order-to-kitchen
+GET localhost:8060/api/order/send

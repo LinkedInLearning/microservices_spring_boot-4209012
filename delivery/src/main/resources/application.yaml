@@ -1,8 +1,9 @@
 spring:
   application:
     name: delivery
-  jackson:
-    serialization:
-      write-dates-as-timestamps: false
+  rabbitmq:
+    listener:
+      simple:
+        default-requeue-rejected: false
 server:
   port: 8050
