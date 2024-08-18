@@ -25,6 +25,6 @@ public class OrderRestController {
         publisher.publish(savedOrder);
 
         // 3. Return order
-        return order;
+        return savedOrder;
     }
 }
