@@ -2,7 +2,6 @@ package bbq.order;
 
 import bbq.order.model.Order;
 import lombok.RequiredArgsConstructor;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class OrderRestController {
 
-    private final OrderRabbitMQPublisher publisher;
+    private final OrderKafkaPublisher publisher;
 
     private final OrderRepository orderRepository;
 

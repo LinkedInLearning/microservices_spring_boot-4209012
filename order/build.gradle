@@ -24,8 +24,8 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-amqp'
-	implementation 'com.github.kkuegler:human-readable-ids-java:0.4'
+	implementation 'org.springframework.kafka:spring-kafka'
+	implementation 'com.github.kkuegler:human-readable-ids-java:0.3'
 	compileOnly 'org.projectlombok:lombok'
 	compileOnly("org.springframework.boot:spring-boot-devtools")
 	annotationProcessor 'org.projectlombok:lombok'
