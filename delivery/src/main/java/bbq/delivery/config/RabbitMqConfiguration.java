@@ -21,24 +21,8 @@ public class RabbitMqConfiguration {
 
     @Bean
     public Declarables rabbitDeclarables() {
-        // Topic
-        var deliveryUpdatesExchange = new TopicExchange("delivery.updates");
-        var ordersDeliveredQueue = QueueBuilder.durable("orders.delivered").build();
-        var ordersInProgressQueue = QueueBuilder.durable("orders.inprogress").build();
-
-        var ordersDeliveredBinding = BindingBuilder.bind(ordersDeliveredQueue)
-                .to(deliveryUpdatesExchange)
-                .with("delivered");
-        var ordersInProgressBinding = BindingBuilder.bind(ordersInProgressQueue)
-                .to(deliveryUpdatesExchange)
-                .with("inprogress");
-
+        // TODO Topic
         return new Declarables(
-                deliveryUpdatesExchange,
-                ordersDeliveredQueue,
-                ordersInProgressQueue,
-                ordersDeliveredBinding,
-                ordersInProgressBinding
         );
     }
 }

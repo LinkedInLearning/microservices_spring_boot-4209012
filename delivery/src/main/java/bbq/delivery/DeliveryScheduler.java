@@ -3,7 +3,6 @@ package bbq.delivery;
 import bbq.delivery.model.Delivery;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +12,6 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 @Slf4j
 public class DeliveryScheduler {
-
-    private final RabbitTemplate rabbitTemplate;
 
     private final DeliveryRepository deliveryRepository;
 
@@ -28,9 +25,7 @@ public class DeliveryScheduler {
         // 1. Advance status
         delivery.nextStatus();
 
-        // 2. Publish update to Topic
-        var routingKey = delivery.getStatus().equals("Delivered") ? "delivered" : "inprogress";
-        rabbitTemplate.convertAndSend("delivery.updates", routingKey,  delivery);
+        // 2. TODO Publish update to Topic
     }
 
 }
