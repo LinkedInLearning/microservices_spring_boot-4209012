@@ -4,3 +4,10 @@ server:
 spring:
   application:
     name: order
+  datasource:
+    url: jdbc:h2:mem:db
+    username: linkedin
+    password: linkedin
+  jpa:
+    hibernate:
+      ddl-auto: update
