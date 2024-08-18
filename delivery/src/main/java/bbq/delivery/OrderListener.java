@@ -23,9 +23,9 @@ public class OrderListener {
     @RetryableTopic(attempts = "2")
     @KafkaListener(topics = "orders", groupId = "delivery", properties = { "spring.json.value.default.type=bbq.delivery.model.Order"})
     public void onOrder(Order order) {
-        throw new RuntimeException("Bam!");
-//     log.info("receive order: {}", order);
-  //   deliveryRepository.addNewOrder(order);
+       // throw new RuntimeException("Bam!");
+     log.info("receive order: {}", order);
+     deliveryRepository.addNewOrder(order);
     }
 
     @DltHandler

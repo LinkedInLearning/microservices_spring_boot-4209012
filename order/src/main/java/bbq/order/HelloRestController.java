@@ -31,14 +31,14 @@ public class HelloRestController {
     @GetMapping("/send")
     public String send() {
         var order = new Order();
-        order.setId(idGenerator.generate());
+        //order.setId(idGenerator.generate());
         var cart = new Cart();
         cart.setTotal(BigDecimal.TEN);
         var cartItem = new CartItem();
         cartItem.setItemTitle("Burger");
         cartItem.setItemPrice(BigDecimal.TEN);
         cart.setItems(List.of(cartItem));
-        order.setCart(cart);
+//        order.setCart(cart);
         kafkaTemplate.send("orders", order);
         return "Done";
     }
