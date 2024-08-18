@@ -24,8 +24,6 @@ public class DeliveryScheduler {
     private void process(Delivery delivery) {
         // 1. Advance status
         delivery.nextStatus();
-
-        // 2. TODO Publish update to Topic
     }
 
 }
