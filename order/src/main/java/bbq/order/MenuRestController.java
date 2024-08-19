@@ -41,6 +41,10 @@ public class MenuRestController {
         return menuRepository.findItemsByCategoryKey(key, sort);
     }
 
+    // TODO: Patch
+
+    // TODO: Delete
+
     @Hidden
     @GetMapping("/response-entity")
     public ResponseEntity<List<MenuCategory>> getResponseEntity() {
