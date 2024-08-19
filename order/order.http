@@ -10,7 +10,7 @@ GET localhost:8060/api/menu
 
 ### Menu filtered by Category Key
 
-GET localhost:8060/api/menu/sides/items
+GET localhost:8060/api/menu/main-course/menu-items
 
 
 ### Menu filtered by Category Key Sorted By Price
