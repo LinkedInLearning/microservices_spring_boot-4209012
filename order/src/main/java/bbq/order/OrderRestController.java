@@ -19,8 +19,6 @@ public class OrderRestController {
         // 1. Save Order
         var savedOrder = orderRepository.save(order);
 
-        // 2. TODO: Publish order
-
         // 3. Return order
         return savedOrder;
     }
