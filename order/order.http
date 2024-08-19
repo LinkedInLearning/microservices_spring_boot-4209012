@@ -23,7 +23,7 @@ GET localhost:8060/api/menu/main-course/menu-items?sort=price
 GET localhost:8060/api/menu/-nothing-
 
 
-### Post Valid Order
+### Post Order
 
 POST localhost:8060/api/order
 Content-Type: application/json
@@ -48,16 +48,3 @@ Content-Type: application/json
   }
 }
 
-
-### Post Invalid Order
-
-POST localhost:8060/api/order
-Content-Type: application/json
-
-{
-  "cart": {
-    "items": []
-  },
-  "billingAddress": {
-  }
-}
