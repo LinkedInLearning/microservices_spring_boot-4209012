@@ -39,10 +39,10 @@ public class RabbitMqConfiguration {
 
         return new Declarables(
                 ordersExchange,
-                kitchenOrdersQueue,
                 deliveryOrdersQueue,
+                deliveryOrdersBinding,
                 kitchenOrdersBinding,
-                deliveryOrdersBinding
+                kitchenOrdersQueue
         );
     }
 }
