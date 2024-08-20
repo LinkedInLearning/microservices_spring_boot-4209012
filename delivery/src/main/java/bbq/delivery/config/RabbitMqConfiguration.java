@@ -1,7 +1,10 @@
 package bbq.delivery.config;
 
 
-import org.springframework.amqp.core.*;
+import org.springframework.amqp.core.BindingBuilder;
+import org.springframework.amqp.core.Declarables;
+import org.springframework.amqp.core.QueueBuilder;
+import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.support.converter.Jackson2JavaTypeMapper;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.context.annotation.Bean;
@@ -14,7 +17,7 @@ public class RabbitMqConfiguration {
 
     @Bean
     public Jackson2JsonMessageConverter messageConverter() {
-        var messageConverter =  new Jackson2JsonMessageConverter();
+        var messageConverter = new Jackson2JsonMessageConverter();
         messageConverter.setTypePrecedence(Jackson2JavaTypeMapper.TypePrecedence.INFERRED);
         return messageConverter;
     }
@@ -22,23 +25,25 @@ public class RabbitMqConfiguration {
     @Bean
     public Declarables rabbitDeclarables() {
         // Topic
-        var deliveryUpdatesExchange = new TopicExchange("delivery.updates");
-        var ordersDeliveredQueue = QueueBuilder.durable("orders.delivered").build();
-        var ordersInProgressQueue = QueueBuilder.durable("orders.inprogress").build();
-
-        var ordersDeliveredBinding = BindingBuilder.bind(ordersDeliveredQueue)
-                .to(deliveryUpdatesExchange)
+        // 1. Exchange
+        var updatesExchange = new TopicExchange("delivery.updates");
+        // 2. Queue
+        var deliveredQueue = QueueBuilder.durable("orders.delivered").build();
+        var inProgressQueue = QueueBuilder.durable("orders.inprogress").build();
+        // 3. Bindings
+        var deliveredBinding = BindingBuilder.bind(deliveredQueue)
+                .to(updatesExchange)
                 .with("delivered");
-        var ordersInProgressBinding = BindingBuilder.bind(ordersInProgressQueue)
-                .to(deliveryUpdatesExchange)
+        var inProgressBinding = BindingBuilder.bind(inProgressQueue)
+                .to(updatesExchange)
                 .with("inprogress");
 
         return new Declarables(
-                deliveryUpdatesExchange,
-                ordersDeliveredQueue,
-                ordersInProgressQueue,
-                ordersDeliveredBinding,
-                ordersInProgressBinding
+                updatesExchange,
+                deliveredQueue,
+                inProgressQueue,
+                deliveredBinding,
+                inProgressBinding
         );
     }
 }
