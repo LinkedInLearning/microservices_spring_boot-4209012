@@ -3,25 +3,24 @@ name: freddy-bbq
 services:
 
   shop-frontend:
-     container_name: shop-frontend
-     build: shop-frontend
-     environment:
+    container_name: shop-frontend
+    build: shop-frontend
+    environment:
       - OTEL_EXPORTER_OTLP_TRACES_ENDPOINT=http://otel-collector:4317
       - OTEL_SERVICE_NAME=shop-frontend
       - OTEL_TRACES_SAMPLER=always_on
-     ports:
-        - "4200:4200"
+    ports:
+      - "4200:4200"
 
   order:
-     container_name: order
-     build: order
-     environment:
-       - DELIVERY_SERVICE_URL=http://delivery:8050
-       - KITCHEN_SERVICE_URL=http://kitchen:8070
-       - OTEL_HOST=otel-collector
-       - KEYCLOAK_HOST=keycloak
-     ports:
-        - "8060:8060"
+    container_name: order
+    build: order
+    environment:
+      - DELIVERY_SERVICE_URL=http://delivery:8050
+      - KITCHEN_SERVICE_URL=http://kitchen:8070
+      - OTEL_HOST=otel-collector
+    ports:
+      - "8060:8060"
 
   delivery:
     container_name: delivery
@@ -32,12 +31,12 @@ services:
       - "8050:8050"
 
   kitchen:
-     container_name: kitchen
-     build: kitchen
-     environment:
-       - OTEL_HOST=otel-collector
-     ports:
-        - "8070:8070"
+    container_name: kitchen
+    build: kitchen
+    environment:
+      - OTEL_HOST=otel-collector
+    ports:
+      - "8070:8070"
 
   otel-collector:
     container_name: otel-collector
@@ -113,24 +112,3 @@ services:
     image: jaegertracing/all-in-one:latest
     ports:
       - "16686:16686"
-
-  oauth2-proxy:
-    build: docker/oauth2-proxy
-    ports:
-      - "4180:4180"
-
-  keycloak:
-    image: quay.io/keycloak/keycloak:25.0.1
-    container_name: "keycloak"
-    ports:
-      - "8080:8080"
-    environment:
-      - KC_HOSTNAME=keycloak
-      - KEYCLOAK_HOSTNAME=keycloak
-      - KEYCLOAK_ADMIN=admin
-      - KEYCLOAK_ADMIN_PASSWORD=a
-    command:
-      - start-dev
-      - --import-realm
-    volumes:
-      - ./docker/keycloak/realm.json:/opt/keycloak/data/import/realm.json

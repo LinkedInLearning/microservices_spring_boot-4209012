@@ -6,7 +6,6 @@ import io.micrometer.core.instrument.MeterRegistry;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -26,7 +25,7 @@ public class OrderRestController {
             MeterRegistry registry) {
         this.orderRepository = orderRepository;
         this.publisher = publisher;
-        this.orderCounter = Counter.builder("orders.placed")
+        this.orderCounter = Counter.builder("orders_placed")
                 .description("Number of orders placed")
                 .register(registry);
     }
@@ -34,8 +33,6 @@ public class OrderRestController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Order post(
-            JwtAuthenticationToken principal,
-            @RequestHeader(value = "Authorization") String authHeader,
             @Valid @RequestBody Order order
     ) {
         try {
