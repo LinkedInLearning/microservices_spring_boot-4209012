@@ -32,9 +32,9 @@ public class RabbitMqConfiguration {
         var deliveryOrdersBinding = BindingBuilder.bind(deliveryOrdersQueue).to(ordersExchange);
 
         return new Declarables(
-                ordersExchange,
                 kitchenOrdersQueue,
                 deliveryOrdersQueue,
+                ordersExchange,
                 kitchenOrdersBinding,
                 deliveryOrdersBinding
         );
