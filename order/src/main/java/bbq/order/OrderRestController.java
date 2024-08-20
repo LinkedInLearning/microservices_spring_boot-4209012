@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class OrderRestController {
 
-    private final OrderKafkaPublisher publisher;
-
     private final OrderRepository orderRepository;
+
+    private final OrderRestClientPublisher publisher;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -26,4 +26,5 @@ public class OrderRestController {
         // 3. Return order
         return savedOrder;
     }
+
 }

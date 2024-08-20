@@ -6,7 +6,6 @@ import {OrderService} from "../../services/order.service";
 import {CartComponent} from "../cart/cart.component";
 import {CartItem} from "../../models/cart";
 import {MenuCategory, MenuItem} from "../../models/menu";
-import {OAuthService} from "angular-oauth2-oidc";
 
 @Component({
   selector: 'app-order',
@@ -27,7 +26,6 @@ export class OrderComponent {
   menuCategories$ =  this.httpClient.get<MenuCategory[]>("/order/api/menu");
 
   constructor(private httpClient: HttpClient,
-              private oauthService: OAuthService,
               protected orderService: OrderService) { }
 
   addToCart(menuItem: MenuItem) {

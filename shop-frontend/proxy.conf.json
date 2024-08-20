@@ -4,6 +4,11 @@
     "target": "http://localhost:8060",
     "secure": false
   },
+  "/delivery": {
+    "pathRewrite": {"^/delivery" : ""},
+    "target": "http://localhost:8050",
+    "secure": false
+  },
   "/kitchen": {
     "pathRewrite": {"^/kitchen" : ""},
     "target": "http://localhost:8070",

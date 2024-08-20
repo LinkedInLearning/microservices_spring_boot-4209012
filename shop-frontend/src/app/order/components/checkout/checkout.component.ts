@@ -33,7 +33,7 @@ export class CheckoutComponent {
   placeOrder() {
     let billingAddress = this.billingForm.getRawValue() as BillingAddress;
     this.orderService.orderTo(billingAddress).subscribe(
-      () => this.router.navigateByUrl(`/tracking`)
+      (order) => this.router.navigateByUrl(`/tracking/${order.id}`)
     );
   }
 

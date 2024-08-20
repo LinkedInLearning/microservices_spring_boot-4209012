@@ -1,31 +1,17 @@
 server:
   port: 8060
+  # Problem Details without Stacktrace
+  error:
+    include-stacktrace: never
 
 spring:
-#  cloud:
-#    kubernetes:
-#      discovery:
-#        enabled: true
+  cloud:
+    kubernetes:
+      discovery:
+        enabled: true
   application:
     name: order
 management:
-  info:
-    git:
-      mode: simple
-      enabled: true
-    java:
-      enabled: true
-  otlp:
-    metrics:
-      export:
-        url: http://${OTEL_HOST:localhost}:4318/v1/metrics
-        batch-size: 1
-        step: 10s
-    tracing:
-      endpoint: http://${OTEL_HOST:localhost}:4318/v1/traces
-  tracing:
-    sampling:
-      probability: 1
   endpoint:
     health:
       show-details: always
@@ -35,13 +21,13 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,metrics,prometheus,info
+        include: health,metrics,prometheus,loggers
 #  metrics:
 #    tags:
 #      service: kitchen
 
 kitchen-service:
-    url: http://localhost:8070
+  url: http://localhost:8070
 
 delivery-service:
   url: http://localhost:8060
