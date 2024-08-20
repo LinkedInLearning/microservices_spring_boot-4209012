@@ -17,16 +17,6 @@ management:
     sampling:
       probability: 1
   # Actuator
-  endpoint:
-    health:
-      show-details: always
-      show-components: always
-      probes:
-        enabled: true
-  endpoints:
-    web:
-      exposure:
-        include: health,metrics,prometheus
 
 kitchen-service:
   url: http://localhost:8070
