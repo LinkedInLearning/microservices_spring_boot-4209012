@@ -28,7 +28,6 @@ public class OrderRestController {
     @Transactional
     public Order post(@RequestBody Order order) {
         // 1. Save Order
-        order.setId(idGenerator.generate());
         var savedOrder = orderRepository.save(order);
 
         // 2. Publish order
