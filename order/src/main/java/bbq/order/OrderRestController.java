@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class OrderRestController {
 
-    private final OrderKafkaPublisher publisher;
-
     private final OrderRepository orderRepository;
 
     private final HumanReadableIdGenerator idGenerator = new PermutationBasedHumanReadableIdGenerator();
@@ -34,7 +32,7 @@ public class OrderRestController {
         var savedOrder = orderRepository.save(order);
 
         // 2. Publish order
-        publisher.publish(savedOrder);
+        // TODO
 
         // 3. Return order
         return savedOrder;
