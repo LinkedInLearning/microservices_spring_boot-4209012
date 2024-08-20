@@ -28,7 +28,9 @@ public class RabbitMqConfiguration {
         // 1. Exchange
         var updatesExchange = new TopicExchange("delivery.updates");
         // 2. Queue
+        //  a) delivered
         var deliveredQueue = QueueBuilder.durable("orders.delivered").build();
+        //  a) inprogress
         var inProgressQueue = QueueBuilder.durable("orders.inprogress").build();
         // 3. Bindings
         var deliveredBinding = BindingBuilder.bind(deliveredQueue)
