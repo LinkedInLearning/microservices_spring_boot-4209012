@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, tap} from "rxjs";
+import {BehaviorSubject, map, of, tap} from "rxjs";
 import {Cart, CartItem} from "../models/cart";
 import {BillingAddress} from "../models/billing";
 import {Order} from "../models/order";
 import {HttpClient} from "@angular/common/http";
+import {OAuthService} from "angular-oauth2-oidc";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class OrderService {
 
   public cart$ = new BehaviorSubject<Cart>({items:[]} as unknown as Cart)
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,  private oauthService: OAuthService) { }
 
   reset() {
     this.cart$.next({items:[]} as unknown as Cart);
@@ -20,7 +21,11 @@ export class OrderService {
 
   orderTo(billingAddress: BillingAddress) {
     let order = { cart: this.cart$.getValue(), billingAddress } as Order;
-    return this.httpClient.post<{ id: string }>("/order/api/order", order).pipe(
+    return this.httpClient.post<{ orderId: string }>("/order/api/order", order, {
+      headers: {
+        "Authorization": `Bearer ${this.oauthService.getAccessToken()}`
+      }
+    }).pipe(
       tap(value =>  this.reset())
     );
   }

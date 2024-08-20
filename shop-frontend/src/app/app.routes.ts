@@ -6,5 +6,5 @@ import {CheckoutComponent} from "./order/components/checkout/checkout.component"
 export const routes: Routes = [
   { path: '', component: OrderComponent },
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'tracking/:orderId', component: TrackingComponent }
+  { path: 'tracking', component: TrackingComponent }
 ];
