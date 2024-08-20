@@ -2,6 +2,7 @@ package bbq.delivery.config;
 
 
 import org.springframework.amqp.core.Declarables;
+import org.springframework.amqp.core.QueueBuilder;
 import org.springframework.amqp.support.converter.Jackson2JavaTypeMapper;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.context.annotation.Bean;
@@ -25,10 +26,14 @@ public class RabbitMqConfiguration {
         // 1. Exchange
         // 2. Queue
         //  a) delivered
+        var deliveredQueue = QueueBuilder.durable("orders.delivered").build();
         //  b) inprogress
+        var inProgressQueue = QueueBuilder.durable("orders.inprogress").build();
         // 3. Bindings
 
         return new Declarables(
+                deliveredQueue,
+                inProgressQueue
         );
     }
 }
