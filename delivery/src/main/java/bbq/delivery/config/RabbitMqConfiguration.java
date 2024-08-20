@@ -24,6 +24,8 @@ public class RabbitMqConfiguration {
         // Topic
         // 1. Exchange
         // 2. Queue
+        //  a) delivered
+        //  b) inprogress
         // 3. Bindings
 
         return new Declarables(
