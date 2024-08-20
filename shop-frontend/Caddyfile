@@ -1,7 +1,4 @@
 :4200 {
-	tracing {
-		span "{method} {scheme}://{hostport}{uri}"
-	}
 
 	log {
 		output stdout

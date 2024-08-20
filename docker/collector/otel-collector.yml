@@ -14,19 +14,11 @@ exporters:
   logging:
     loglevel: debug
 
-  loki:
-    endpoint: "http://loki:3100/loki/api/v1/push"
-
   prometheus:
     endpoint: "0.0.0.0:8889"
 
   otlp:
     endpoint: tempo:4317
-    tls:
-      insecure: true
-
-  otlp/jaeger:
-    endpoint: jaeger-all-in-one:4317
     tls:
       insecure: true
 
@@ -40,16 +32,10 @@ extensions:
   zpages:
 
 service:
-  extensions: [health_check, pprof, zpages]
+  extensions: [ health_check, pprof, zpages ]
   pipelines:
     metrics:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [prometheus]
-    traces:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [otlp/jaeger,otlp]
-    logs:
-      receivers: [otlp]
-      exporters: [loki]
+      receivers: [ otlp ]
+      processors: [ batch ]
+      exporters: [ prometheus ]
+
