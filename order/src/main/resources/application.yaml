@@ -5,16 +5,10 @@ spring:
   application:
     name: order
 management:
-  otlp:
-    metrics:
-      export:
-        url: http://${OTEL_HOST:localhost}:4318/v1/metrics
-        batch-size: 1
-        step: 10s
   endpoints:
     web:
       exposure:
-        include: health,metrics,prometheus
+        include: health,metrics
 
 kitchen-service:
   url: http://localhost:8070

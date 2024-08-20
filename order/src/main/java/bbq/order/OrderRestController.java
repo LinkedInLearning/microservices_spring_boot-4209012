@@ -1,8 +1,6 @@
 package bbq.order;
 
 import bbq.order.model.Order;
-import io.micrometer.core.instrument.Counter;
-import io.micrometer.core.instrument.MeterRegistry;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -17,17 +15,11 @@ public class OrderRestController {
 
     private final OrderRestTemplatePublisher publisher;
 
-    private final Counter orderCounter;
-
     public OrderRestController(
             OrderRepository orderRepository,
-            OrderRestTemplatePublisher publisher,
-            MeterRegistry registry) {
+            OrderRestTemplatePublisher publisher) {
         this.orderRepository = orderRepository;
         this.publisher = publisher;
-        this.orderCounter = Counter.builder("orders_placed")
-                .description("Number of orders placed")
-                .register(registry);
     }
 
     @PostMapping
@@ -35,17 +27,13 @@ public class OrderRestController {
     public Order post(
             @Valid @RequestBody Order order
     ) {
-        try {
-            // 1. Save Order
-            var savedOrder = orderRepository.save(order);
+        // 1. Save Order
+        var savedOrder = orderRepository.save(order);
 
-            // 2. Publish order
-            publisher.publish(savedOrder);
+        // 2. Publish order
+        publisher.publish(savedOrder);
 
-            return savedOrder;
-        } finally {
-            orderCounter.increment();
-        }
+        return savedOrder;
     }
 
 }
