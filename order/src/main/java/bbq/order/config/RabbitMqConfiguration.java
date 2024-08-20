@@ -22,16 +22,22 @@ public class RabbitMqConfiguration {
     @Bean
     public Declarables rabbitDeclarables() {
         // Publish/Subscribe
-        var kitchenOrdersQueue = new Queue("kitchen.orders", false);
-        var deliveryOrdersQueue = QueueBuilder.nonDurable("delivery.orders")
-                .deadLetterExchange("delivery.orders.dlx")
-                .build();
+        // 1. Exchange
         var ordersExchange = new FanoutExchange("orders");
-        var kitchenOrdersBinding = BindingBuilder.bind(kitchenOrdersQueue).to(ordersExchange);
+
+        // a) delivery orders
+        // 2. Queue
+        var deliveryOrdersQueue = QueueBuilder.nonDurable("delivery.orders").build();
+        // 3. Binding
         var deliveryOrdersBinding = BindingBuilder.bind(deliveryOrdersQueue).to(ordersExchange);
 
+        // b) kitchen orders
+        // 2. Queue
+        var kitchenOrdersQueue = new Queue("kitchen.orders", false);
+        // 3. Binding
+        var kitchenOrdersBinding = BindingBuilder.bind(kitchenOrdersQueue).to(ordersExchange);
+
         return new Declarables(
-                // PubSub
                 ordersExchange,
                 kitchenOrdersQueue,
                 deliveryOrdersQueue,
