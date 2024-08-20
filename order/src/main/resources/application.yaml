@@ -1,16 +1,8 @@
 server:
   port: 8060
 spring:
-  datasource:
-    url: jdbc:h2:mem:db
-    username: linkedin
-    password: linkedin
   application:
     name: order
-  kafka:
-    bootstrap-servers: localhost:29092
-    producer:
-      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-  jpa:
-    hibernate:
-      ddl-auto: update
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
