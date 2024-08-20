@@ -15,7 +15,7 @@ public class OrderListener {
 
     @RabbitListener(queues = "delivery.orders")
     public void onOrder(Order order) {
-     log.info("receive order: {}", order);
-     deliveryRepository.addNewOrder(order);
+        log.info("receive order: {}", order);
+        deliveryRepository.addNewOrder(order);
     }
 }
