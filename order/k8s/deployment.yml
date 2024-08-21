@@ -26,7 +26,3 @@ spec:
               port: 8060
           ports:
             - containerPort: 8060
-          # Umgebungsvariablen
-          env:
-            - name: SPRING_CLOUD_BOOTSTRAP_ENABLED
-              value: "true"
