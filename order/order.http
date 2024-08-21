@@ -1,4 +1,8 @@
-GET localhost:8080/api/order
+GET localhost:8060/
+
+### Error
+
+GET localhost:8060/crash
 
 ### Menu
 

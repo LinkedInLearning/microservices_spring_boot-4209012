@@ -1,6 +1,7 @@
 server:
   port: 8060
-
+  error:
+    include-stacktrace: never
 
 spring:
   application:

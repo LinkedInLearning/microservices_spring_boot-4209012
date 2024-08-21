@@ -1,0 +1,6 @@
+server:
+  error:
+    include-stacktrace: always
+
+logging:
+  config: classpath:logback-local.xml
