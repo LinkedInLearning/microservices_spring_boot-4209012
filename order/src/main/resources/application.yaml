@@ -1,9 +1,12 @@
 server:
   port: 8060
 
+
 spring:
   application:
     name: order
+  main:
+    banner-mode: off
 management:
   info:
     git:
@@ -32,15 +35,9 @@ management:
     web:
       exposure:
         include: health,metrics,prometheus,info
-#  metrics:
-#    tags:
-#      service: kitchen
 
 kitchen-service:
   url: http://localhost:8070
 
 delivery-service:
   url: http://localhost:8060
-
-# logging:
-#  config: classpath:logback.xml

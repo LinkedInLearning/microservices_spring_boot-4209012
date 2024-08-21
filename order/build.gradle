@@ -32,10 +32,10 @@ dependencies {
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0'
     implementation 'com.github.kkuegler:human-readable-ids-java:0.4'
 
-    // https://mvnrepository.com/artifact/net.logstash.logback/logstash-logback-encoder
+    // Structured Logging
     implementation 'net.logstash.logback:logstash-logback-encoder:8.0'
 
-
+    // Open Telemetry Observability
     implementation 'io.micrometer:micrometer-tracing-bridge-otel'
     implementation 'io.micrometer:micrometer-registry-otlp'
     implementation 'io.micrometer:micrometer-registry-prometheus' // TODO: Checken ob wir das brauchen bei OTEL

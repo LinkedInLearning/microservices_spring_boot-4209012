@@ -1,6 +1,8 @@
 spring:
   application:
     name: delivery
+  main:
+    banner-mode: off
   jackson:
     serialization:
       write-dates-as-timestamps: false
@@ -28,4 +30,4 @@ server:
   port: 8050
 
 kitchen-service:
-    url: http://localhost:8070
+  url: http://localhost:8070

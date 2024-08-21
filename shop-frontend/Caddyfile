@@ -9,7 +9,7 @@
 			message_key "message"
 			time_key "timestamp"
 			time_format "rfc3339"
-			level_format "upper"
+			level_format upper
 		}
 	}
 

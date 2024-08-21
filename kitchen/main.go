@@ -58,7 +58,7 @@ func main() {
 	r.HandleFunc("POST /api/kitchen", func(w http.ResponseWriter, r *http.Request) {
 		bodyBytes, _ := io.ReadAll(r.Body)
 		requestBody := string(bodyBytes)
-		slog.Info("Got it, we're on it ... %v", "body", requestBody)
+		slog.Info( fmt.Sprintf("Got it, we're on it ... %v", requestBody), "body", requestBody)
 		fmt.Fprintf(w, "Got it, we're on it ...")
 	})
 
