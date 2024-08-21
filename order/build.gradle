@@ -33,7 +33,7 @@ dependencies {
     implementation 'com.github.kkuegler:human-readable-ids-java:0.4'
 
     // Structured Logging
-    implementation 'net.logstash.logback:logstash-logback-encoder:8.0'
+    // TODO
 
     // Open Telemetry Observability
     implementation 'io.micrometer:micrometer-tracing-bridge-otel'
