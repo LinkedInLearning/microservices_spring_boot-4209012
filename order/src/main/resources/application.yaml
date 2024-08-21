@@ -6,16 +6,9 @@ spring:
     name: order
 management:
   otlp:
-    # Tracing 1
-    tracing:
-      endpoint: http://${OTEL_HOST:localhost}:4318/v1/traces
     metrics:
       export:
         enabled: false
-  # Tracing 2
-  tracing:
-    sampling:
-      probability: 1
   endpoints:
     web:
       exposure:
