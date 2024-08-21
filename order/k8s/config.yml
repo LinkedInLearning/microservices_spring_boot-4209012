@@ -4,4 +4,4 @@ metadata:
   name: order
 data:
   application.properties: |-
-    order.greeting: Hello Config Map 33
+    order.greeting:Hello from Config Map!!

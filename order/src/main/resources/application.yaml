@@ -5,10 +5,6 @@ server:
     include-stacktrace: never
 
 spring:
-  cloud:
-    kubernetes:
-      discovery:
-        enabled: true
   application:
     name: order
 management:
@@ -21,7 +17,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,metrics,prometheus,loggers
+        include: health,metrics,prometheus,loggers,info
 #  metrics:
 #    tags:
 #      service: kitchen
