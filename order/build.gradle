@@ -38,7 +38,7 @@ dependencies {
     // Open Telemetry Observability
     implementation 'io.micrometer:micrometer-tracing-bridge-otel'
     implementation 'io.micrometer:micrometer-registry-otlp'
-    implementation 'io.micrometer:micrometer-registry-prometheus' // TODO: Checken ob wir das brauchen bei OTEL
+    implementation 'io.micrometer:micrometer-registry-prometheus'
     implementation 'io.opentelemetry:opentelemetry-exporter-otlp'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
