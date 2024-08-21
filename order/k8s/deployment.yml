@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: order
-          image: order:0.0.1-SNAPSHOT
+          image: order:0.0.2-SNAPSHOT
           # Probes
           livenessProbe:
             httpGet:
