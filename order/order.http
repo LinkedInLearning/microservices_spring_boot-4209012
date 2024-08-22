@@ -67,6 +67,11 @@ GET http://localhost:8060/v3/api-docs.yaml
 GET localhost:8060/api/order/crash
 
 
+### Rate Limit
+
+GET localhost:8060/api/order/rate-limit
+
+
 ### Post Valid Order
 
 POST localhost:8060/api/order

@@ -1,12 +1,12 @@
 package bbq.order;
 
 import bbq.order.model.Order;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @Tag(name = "Order", description = "Order Resource")
@@ -18,16 +18,15 @@ public class OrderRestController {
 
     private final OrderRestClientPublisher publisher;
 
-    @GetMapping("/crash")
+    @RateLimiter(name = "rateLimiterApi")
+    @GetMapping("/rate-limit")
     public String crash() {
-        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Found nothing...");
-        //throw new IllegalArgumentException("Don't get it.");
-//        throw new RuntimeException("Bam!");
+        return "Rated!";
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Order post(@Valid @RequestBody Order order) {
+    public Order post(@Valid @RequestBody Order order) throws InterruptedException {
         // 1. Save Order
         var savedOrder = orderRepository.save(order);
 

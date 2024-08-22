@@ -7,3 +7,10 @@ server:
 spring:
   application:
     name: order
+
+resilience4j:
+  ratelimiter:
+    instances:
+      rateLimiterApi:
+        limit-for-period: 5
+        limit-refresh-period: 60s
