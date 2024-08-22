@@ -4,24 +4,3 @@ server:
 spring:
   application:
     name: order
-  security:
-    oauth2:
-      resourceserver:
-        issuer-uri: http://${KEYCLOAK_HOST:keycloak}:8080/realms/freddy
-management:
-  info:
-    git:
-      mode: simple
-      enabled: true
-    java:
-      enabled: true
-  endpoint:
-    health:
-      show-details: always
-      show-components: always
-      probes:
-        enabled: true
-  endpoints:
-    web:
-      exposure:
-        include: health,metrics,prometheus,info
