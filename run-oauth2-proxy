@@ -1,0 +1,2 @@
+#/bin/bash
+oauth2-proxy --config docker/oauth2-proxy/oauth2-proxy.local.cfg
