@@ -1,6 +1,5 @@
 server:
   port: 8060
-
 spring:
   application:
     name: order
@@ -8,6 +7,8 @@ spring:
     oauth2:
       resourceserver:
         issuer-uri: http://${KEYCLOAK_HOST:keycloak}:8080/realms/freddy
+  profiles:
+    active: production
 management:
   info:
     git:
