@@ -67,6 +67,27 @@ GET http://localhost:8060/v3/api-docs.yaml
 GET localhost:8060/api/order/crash
 
 
-### Order to Kitchen
+### Post Valid Order
 
-GET localhost:8060/api/order-to-kitchen
+POST localhost:8060/api/order
+Content-Type: application/json
+
+{
+  "cart": {
+    "items": [
+      {
+        "itemId": "item-1",
+        "itemTitle": "Spare Ribs",
+        "count": 2,
+        "itemPrice": 10.0,
+        "total": 20.0
+      }
+    ]
+  },
+  "billingAddress": {
+    "name": "Frank",
+    "city": "Washington",
+    "street": "Pennsylvania Avenue 1600",
+    "zip": "12345"
+  }
+}
