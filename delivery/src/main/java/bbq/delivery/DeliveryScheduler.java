@@ -7,8 +7,6 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
-
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -20,7 +18,7 @@ public class DeliveryScheduler {
 
     @Scheduled(fixedRateString = "PT10S")
     public void scheduleFixedRateTask() {
-        log.info("Sending delivery updates at {}", LocalDateTime.now());
+        //log.info("Sending delivery updates at {}", LocalDateTime.now());
         deliveryRepository.getAll().forEach(this::process);
     }
 
