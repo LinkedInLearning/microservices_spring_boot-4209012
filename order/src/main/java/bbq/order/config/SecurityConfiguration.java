@@ -14,7 +14,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-public class OAuth2ResourceServerSecurityConfiguration {
+public class SecurityConfiguration {
 
     @Value("${spring.security.oauth2.resourceserver.issuer-uri}")
     String issuer;
