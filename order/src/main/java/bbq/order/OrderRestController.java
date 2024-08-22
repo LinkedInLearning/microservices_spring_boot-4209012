@@ -22,17 +22,13 @@ public class OrderRestController {
     public Order post(
             @Valid @RequestBody Order order
     ) {
-        try {
-            // 1. Save Order
-            var savedOrder = orderRepository.save(order);
+        // 1. Save Order
+        var savedOrder = orderRepository.save(order);
 
-            // 2. Publish order
-            publisher.publish(savedOrder);
+        // 2. Publish order
+        publisher.publish(savedOrder);
 
-            return savedOrder;
-        } finally {
-            orderCounter.increment();
-        }
+        return savedOrder;
     }
 
 }
