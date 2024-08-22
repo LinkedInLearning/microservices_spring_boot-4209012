@@ -1,16 +1,15 @@
 package bbq.order;
 
 import bbq.order.model.Order;
-import io.micrometer.core.instrument.Counter;
-import io.micrometer.core.instrument.MeterRegistry;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Tag(name = "Order", description = "Order Resource")
+@RequiredArgsConstructor
 @RequestMapping("/api/order")
 public class OrderRestController {
 
@@ -18,24 +17,9 @@ public class OrderRestController {
 
     private final OrderRestTemplatePublisher publisher;
 
-    private final Counter orderCounter;
-
-    public OrderRestController(
-            OrderRepository orderRepository,
-            OrderRestTemplatePublisher publisher,
-            MeterRegistry registry) {
-        this.orderRepository = orderRepository;
-        this.publisher = publisher;
-        this.orderCounter = Counter.builder("orders.placed")
-                .description("Number of orders placed")
-                .register(registry);
-    }
-
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Order post(
-            JwtAuthenticationToken principal,
-            @RequestHeader(value = "Authorization") String authHeader,
             @Valid @RequestBody Order order
     ) {
         try {
