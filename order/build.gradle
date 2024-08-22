@@ -28,9 +28,7 @@ dependencies {
     implementation 'com.github.kkuegler:human-readable-ids-java:0.3'
 
     // Resilience
-    implementation 'org.springframework.boot:spring-boot-starter-aop'
-    implementation 'org.springframework.retry:spring-retry'
-    implementation("io.github.resilience4j:resilience4j-spring-boot3:2.2.0")
+    // TODO
 
     compileOnly 'org.projectlombok:lombok'
     compileOnly("org.springframework.boot:spring-boot-devtools")

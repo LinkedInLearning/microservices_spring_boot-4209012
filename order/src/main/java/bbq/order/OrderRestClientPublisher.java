@@ -2,7 +2,6 @@ package bbq.order;
 
 import bbq.order.model.Order;
 import com.fasterxml.jackson.databind.JsonNode;
-import io.github.resilience4j.retry.annotation.Retry;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,8 +21,6 @@ public class OrderRestClientPublisher {
 
     private final RestClient restClient;
 
-    //    @Retryable
-    @Retry(name = "asdf")
     void publish(Order order) {
         log.info("Publishing order ...");
         var responseDelivery = restClient.post()
