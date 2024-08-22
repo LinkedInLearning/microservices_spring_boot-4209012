@@ -25,7 +25,6 @@ public class OAuth2ResourceServerSecurityConfiguration {
                 .authorizeHttpRequests((authorize) -> authorize
                         .requestMatchers("/actuator/**").permitAll()
                         .requestMatchers("/api/menu/**").permitAll()
-                        .requestMatchers("/api/order-to-kitchen/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .csrf(AbstractHttpConfigurer::disable)
