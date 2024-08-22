@@ -8,7 +8,6 @@ spring:
     oauth2:
       resourceserver:
         issuer-uri: http://${KEYCLOAK_HOST:keycloak}:8080/realms/freddy
-#        jwk-set-uri: http://localhost:8080/realms/freddy/protocol/openid-connect/certs
 management:
   info:
     git:
@@ -42,7 +41,7 @@ management:
 #      service: kitchen
 
 kitchen-service:
-    url: http://localhost:8070
+  url: http://localhost:8070
 
 delivery-service:
   url: http://localhost:8060
