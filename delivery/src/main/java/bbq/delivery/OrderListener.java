@@ -13,10 +13,11 @@ public class OrderListener {
 
     private final DeliveryRepository deliveryRepository;
 
-    @KafkaListener(topics = "orders", groupId = "delivery", properties = { "spring.json.value.default.type=bbq.delivery.model.Order"})
+    @KafkaListener(topics = "orders", groupId = "delivery", properties = {"spring.json.value.default.type=bbq.delivery.model.Order"})
     public void onOrder(Order order) {
-     log.info("receive order: {}", order);
-     deliveryRepository.addNewOrder(order);
+        if (true) throw new RuntimeException("Crash!");
+        log.info("receive order: {}", order);
+        deliveryRepository.addNewOrder(order);
     }
 
 }
