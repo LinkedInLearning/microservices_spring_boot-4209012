@@ -30,7 +30,9 @@ public class RabbitMqConfiguration {
         var deliveryOrdersBinding = BindingBuilder.bind(deliveryOrdersQueue).to(ordersExchange);
 
         // DLQ
-        // TODO
+        var dlx = new FanoutExchange("delivery.orders.dlx");
+        var dlq = QueueBuilder.nonDurable("delivery.orders.dlq").build();
+        var dlqBinding = BindingBuilder.bind(dlq).to(dlx);
 
         return new Declarables(
                 // PubSub
@@ -38,9 +40,11 @@ public class RabbitMqConfiguration {
                 kitchenOrdersQueue,
                 deliveryOrdersQueue,
                 kitchenOrdersBinding,
-                deliveryOrdersBinding
+                deliveryOrdersBinding,
                 // DLQ
-                // TODO
+                dlx,
+                dlq,
+                dlqBinding
         );
     }
 }
