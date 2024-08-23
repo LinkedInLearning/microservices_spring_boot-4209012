@@ -40,7 +40,7 @@ public class RabbitMqConfiguration {
                 kitchenOrdersQueue,
                 deliveryOrdersQueue,
                 kitchenOrdersBinding,
-                deliveryOrdersBinding,
+                deliveryOrdersBinding
                 // DLQ
                 // dlx,
                 // dlq,
