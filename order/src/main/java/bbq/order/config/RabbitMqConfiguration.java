@@ -24,16 +24,13 @@ public class RabbitMqConfiguration {
         // Publish/Subscribe
         var kitchenOrdersQueue = new Queue("kitchen.orders", false);
         var deliveryOrdersQueue = QueueBuilder.nonDurable("delivery.orders")
-                .deadLetterExchange("delivery.orders.dlx")
                 .build();
         var ordersExchange = new FanoutExchange("orders");
         var kitchenOrdersBinding = BindingBuilder.bind(kitchenOrdersQueue).to(ordersExchange);
         var deliveryOrdersBinding = BindingBuilder.bind(deliveryOrdersQueue).to(ordersExchange);
 
         // DLQ
-        var deliveryOrdersDlx = new FanoutExchange("delivery.orders.dlx");
-        var deliveryOrdersDlq = QueueBuilder.nonDurable("delivery.orders.dlq").build();
-        var deliveryOrdersDlqBinding = BindingBuilder.bind(deliveryOrdersDlq).to(deliveryOrdersDlx);
+        // TODO
 
         return new Declarables(
                 // PubSub
@@ -41,11 +38,9 @@ public class RabbitMqConfiguration {
                 kitchenOrdersQueue,
                 deliveryOrdersQueue,
                 kitchenOrdersBinding,
-                deliveryOrdersBinding,
+                deliveryOrdersBinding
                 // DLQ
-                deliveryOrdersDlq,
-                deliveryOrdersDlx,
-                deliveryOrdersDlqBinding
+                // TODO
         );
     }
 }
