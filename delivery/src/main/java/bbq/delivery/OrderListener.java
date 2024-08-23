@@ -15,9 +15,8 @@ public class OrderListener {
 
     @RabbitListener(queues = "delivery.orders")
     public void onOrder(Order order) {
-     //   throw new AmqpRejectAndDontRequeueException("over");
-       // throw new RuntimeException("Order delivery failed");
-     log.info("receive order: {}", order);
-     deliveryRepository.addNewOrder(order);
+        log.info("receive order: {}", order);
+        if (true) throw new RuntimeException("Crash");
+        deliveryRepository.addNewOrder(order);
     }
 }
