@@ -42,9 +42,9 @@ public class RabbitMqConfiguration {
                 kitchenOrdersBinding,
                 deliveryOrdersBinding,
                 // DLQ
-                dlx,
-                dlq,
-                dlqBinding
+                // dlx,
+                // dlq,
+                // dlqBinding
         );
     }
 }
