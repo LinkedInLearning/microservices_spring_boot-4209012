@@ -29,10 +29,7 @@ Dieses Problem lösen Sie wie folgt:
 
 ## Installation
 
-1. Um diese Übungsdateien nutzen zu können, müssen Sie folgendes installiert haben:
-   - [list of requirements for course]
-2. Klonen Sie das Repository in Ihre lokale Maschine unter Verwendung von terminal (Mac), CMD (Windows) oder ein anderes Werkzeug mit grafischer Bedienoberfläche wie SourceTree.
-3. [Course-specific instructions]
+1. Klonen Sie das Repository in Ihre lokale Maschine unter Verwendung von terminal (Mac), CMD (Windows) oder ein anderes Werkzeug mit grafischer Bedienoberfläche wie SourceTree.
 
 ### 0. Setzen des Keycloak Hostnamens
 
@@ -40,9 +37,10 @@ Zur Authentifizierung muss der Hostname `keycloak` auf Ihrem System auflösen zu
 
     127.0.0.1   keycloak
 
-##  1. Ausführen mit Docker Compose
+###  1. Ausführen mit Docker Compose
 
     docker compose up
+
 
 ### Autor
 
@@ -53,13 +51,5 @@ _Softwarearchitekt_
 Sehen Sie sich andere Kurse des Autors auf [LinkedIn Learning](https://www.linkedin.com/learning/instructors/jan-stamer) an.
 
 [0]: # (Replace these placeholder URLs with actual course URLs)
-[lil-course-url]: https://www.linkedin.com
-[lil-thumbnail-url]: https:
-
-[1]: # (End of DE-Instruction ###############################################################################################)
-
-[0]: # (Replace these placeholder URLs with actual course URLs) 
-[lil-course-url]: https://www.linkedin.com 
-[lil-thumbnail-url]: https:// 
-
-[1]: # (End of BP-Instruction ###############################################################################################) 
+[lil-course-url]: https://www.linkedin.com/learning/microservices-mit-spring-boot-24015928
+[lil-thumbnail-url]: https://media.licdn.com/dms/image/v2/D4E0DAQEzd7yG-BgU0Q/learning-public-crop_675_1200/learning-public-crop_675_1200/0/1730110372380?e=2147483647&v=beta&t=smoVDiyxs8YC-EsMgzoH_fFC9HQzbl1iYzlEhNspOGQ
