@@ -4,7 +4,7 @@ Dies ist das Repository für den **LinkedIn Learning** Kurs `Microservices mit S
 
 ![COURSENAME][lil-thumbnail-url] 
 
-Ein Microservice kann schnell entwickelt werden, autonom von einem Team. Der Microservices skaliert flexibel, ist performant und leicht zu erweitern. Ansonsten einfach austauschen. Aber wie funktioniert das? <br><br>
+Ein Microservice kann schnell entwickelt werden, autonom von einem Team. Der Microservices skaliert flexibel, ist performant und leicht zu erweitern. Ansonsten einfach austauschen. Aber wie funktioniert das?
 
 Spring Boot bietet eine exzellente Runtime auf der Java Virtual Machine und ein riesiges Ökosystem. Ob Kafka, Kubernetes oder Monitoring-Unterstützung – Spring Boot bringt alles mit, was Sie für Microservices brauchen. Lernen Sie mit Jan Stamer in diesem LinkedIn Learning-Kurs, was Sie sich von Microservices versprechen können.
 
