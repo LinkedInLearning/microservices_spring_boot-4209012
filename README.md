@@ -4,7 +4,11 @@ Dies ist das Repository für den **LinkedIn Learning** Kurs `Microservices mit S
 
 ![COURSENAME][lil-thumbnail-url] 
 
-[COURSEDESCRIPTION]
+Ein Microservice kann schnell entwickelt werden, autonom von einem Team. Der Microservices skaliert flexibel, ist performant und leicht zu erweitern. Ansonsten einfach austauschen. Aber wie funktioniert das? <br><br>
+
+Spring Boot bietet eine exzellente Runtime auf der Java Virtual Machine und ein riesiges Ökosystem. Ob Kafka, Kubernetes oder Monitoring-Unterstützung – Spring Boot bringt alles mit, was Sie für Microservices brauchen. Lernen Sie mit Jan Stamer in diesem LinkedIn Learning-Kurs, was Sie sich von Microservices versprechen können.
+
+Mit der Hilfe von praktischen Challenge/Solution-Einheiten am Ende der Kapitel können Sie ihr Wissen immer wieder überprüfen und Ihre Lösung mit der Ihres Trainers vergleichen.
 
 ## Anleitung
 
@@ -31,13 +35,13 @@ Dieses Problem lösen Sie wie folgt:
 
 1. Klonen Sie das Repository in Ihre lokale Maschine unter Verwendung von terminal (Mac), CMD (Windows) oder ein anderes Werkzeug mit grafischer Bedienoberfläche wie SourceTree.
 
-### 0. Setzen des Keycloak Hostnamens
+2. Setzen des Keycloak Hostnamens
 
 Zur Authentifizierung muss der Hostname `keycloak` auf Ihrem System auflösen zu `127.0.0.1`. Dazu müssen Sie folgende Zeile in ihre Hosts Datei hinzufüren (`/etc/hosts` auf Mac/Linux und auf Windows `c:\Windows\System32\Drivers\etc\hosts` als Administrator): 
 
     127.0.0.1   keycloak
 
-###  1. Ausführen mit Docker Compose
+3. Ausführen mit Docker Compose
 
     docker compose up
 
