@@ -43,7 +43,7 @@ Zur Authentifizierung muss der Hostname `keycloak` auf Ihrem System auflösen zu
 
 3. Ausführen mit Docker Compose
 
-    docker compose up
+    `docker compose up`
 
 
 ### Autor
