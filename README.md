@@ -4,7 +4,11 @@ Dies ist das Repository für den **LinkedIn Learning** Kurs `Microservices mit S
 
 ![COURSENAME][lil-thumbnail-url] 
 
-[COURSEDESCRIPTION]
+Ein Microservice kann schnell entwickelt werden, autonom von einem Team. Der Microservices skaliert flexibel, ist performant und leicht zu erweitern. Ansonsten einfach austauschen. Aber wie funktioniert das?
+
+Spring Boot bietet eine exzellente Runtime auf der Java Virtual Machine und ein riesiges Ökosystem. Ob Kafka, Kubernetes oder Monitoring-Unterstützung – Spring Boot bringt alles mit, was Sie für Microservices brauchen. Lernen Sie mit Jan Stamer in diesem LinkedIn Learning-Kurs, was Sie sich von Microservices versprechen können.
+
+Mit der Hilfe von praktischen Challenge/Solution-Einheiten am Ende der Kapitel können Sie ihr Wissen immer wieder überprüfen und Ihre Lösung mit der Ihres Trainers vergleichen.
 
 ## Anleitung
 
@@ -29,20 +33,18 @@ Dieses Problem lösen Sie wie folgt:
 
 ## Installation
 
-1. Um diese Übungsdateien nutzen zu können, müssen Sie folgendes installiert haben:
-   - [list of requirements for course]
-2. Klonen Sie das Repository in Ihre lokale Maschine unter Verwendung von terminal (Mac), CMD (Windows) oder ein anderes Werkzeug mit grafischer Bedienoberfläche wie SourceTree.
-3. [Course-specific instructions]
+1. Klonen Sie das Repository in Ihre lokale Maschine unter Verwendung von terminal (Mac), CMD (Windows) oder ein anderes Werkzeug mit grafischer Bedienoberfläche wie SourceTree.
 
-### 0. Setzen des Keycloak Hostnamens
+2. Setzen des Keycloak Hostnamens
 
 Zur Authentifizierung muss der Hostname `keycloak` auf Ihrem System auflösen zu `127.0.0.1`. Dazu müssen Sie folgende Zeile in ihre Hosts Datei hinzufüren (`/etc/hosts` auf Mac/Linux und auf Windows `c:\Windows\System32\Drivers\etc\hosts` als Administrator): 
 
     127.0.0.1   keycloak
 
-##  1. Ausführen mit Docker Compose
-
+3. Ausführen mit Docker Compose
+```
     docker compose up
+```
 
 ### Autor
 
@@ -53,13 +55,5 @@ _Softwarearchitekt_
 Sehen Sie sich andere Kurse des Autors auf [LinkedIn Learning](https://www.linkedin.com/learning/instructors/jan-stamer) an.
 
 [0]: # (Replace these placeholder URLs with actual course URLs)
-[lil-course-url]: https://www.linkedin.com
-[lil-thumbnail-url]: https:
-
-[1]: # (End of DE-Instruction ###############################################################################################)
-
-[0]: # (Replace these placeholder URLs with actual course URLs) 
-[lil-course-url]: https://www.linkedin.com 
-[lil-thumbnail-url]: https:// 
-
-[1]: # (End of BP-Instruction ###############################################################################################) 
+[lil-course-url]: https://www.linkedin.com/learning/microservices-mit-spring-boot-24015928
+[lil-thumbnail-url]: https://media.licdn.com/dms/image/v2/D4E0DAQEzd7yG-BgU0Q/learning-public-crop_675_1200/learning-public-crop_675_1200/0/1730110372380?e=2147483647&v=beta&t=smoVDiyxs8YC-EsMgzoH_fFC9HQzbl1iYzlEhNspOGQ
