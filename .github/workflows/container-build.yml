@@ -3,7 +3,7 @@ name: Deploy Image to GHCR
 on:
   push:
     branches:
-      - main
+      - feature/azure-container-apps-demo
 
 jobs:
       push-store-image:
