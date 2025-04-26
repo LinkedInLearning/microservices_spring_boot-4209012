@@ -25,5 +25,5 @@ jobs:
           - name: 'Build + Push Image'
             run: |
               cd delivery
-              docker build . --tag ghcr.io/LinkedInLearning/delivery-aca:latest
-              docker push ghcr.io/LinkedInLearning/delivery-aca:latest
+              docker build . --tag ghcr.io/linkedinlearning/delivery-aca:latest
+              docker push ghcr.io/linkedinlearning/delivery-aca:latest
