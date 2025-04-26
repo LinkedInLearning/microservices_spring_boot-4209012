@@ -28,6 +28,12 @@ jobs:
               docker build . --tag ghcr.io/linkedinlearning/delivery-aca:latest
               docker push ghcr.io/linkedinlearning/delivery-aca:latest
 
+          - name: 'Build + Push Image Order'
+            run: |
+              cd order
+              docker build . --tag ghcr.io/linkedinlearning/order-aca:latest
+              docker push ghcr.io/linkedinlearning/order-aca:latest
+
           - name: 'Build + Push Image Kitchen'
             run: |
               cd kitchen
