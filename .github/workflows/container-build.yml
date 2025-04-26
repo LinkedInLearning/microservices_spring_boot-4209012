@@ -1,4 +1,4 @@
-name: Deploy Image to GHCR
+name: Deploy Images to GHCR
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - feature/azure-container-apps-demo
 
 jobs:
-      push-store-image:
+      push-store-images:
         runs-on: ubuntu-latest
         permissions:
             contents: read
@@ -22,8 +22,20 @@ jobs:
               username: ${{github.actor}}
               password: ${{secrets.GITHUB_TOKEN}}
 
-          - name: 'Build + Push Image'
+          - name: 'Build + Push Image Delivery'
             run: |
               cd delivery
               docker build . --tag ghcr.io/linkedinlearning/delivery-aca:latest
               docker push ghcr.io/linkedinlearning/delivery-aca:latest
+
+          - name: 'Build + Push Image Kitchen'
+            run: |
+              cd kitchen
+              docker build . --tag ghcr.io/linkedinlearning/kitchen-aca:latest
+              docker push ghcr.io/linkedinlearning/kitchen-aca:latest
+
+          - name: 'Build + Push Image Shop Frontend'
+            run: |
+              cd shop-frontend
+              docker build . --tag ghcr.io/linkedinlearning/shop-frontend-aca:latest
+              docker push ghcr.io/linkedinlearning/shop-frontend-aca:latest
